@@ -8,4 +8,35 @@
 <img src = "2024-10-12_21.55.48.png" width= "400" height = "250">
 <img src = "2024-10-18_21.28.18.png" width= "400" height = "250">
   <img src = "2024-10-18_21.51.44.png" width= "400" height = "250">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insecure Comments Section</title>
+</head>
+<body>
+    <h1>Comments Section (Insecure)</h1>
+    <form id="commentForm">
+        <label for="username">Name:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" required></textarea><br><br>
+        <button type="button" onclick="addComment()">Submit</button>
+    </form>
+    <hr>
+    <div id="comments">
+        <h2>Comments:</h2>
+    </div>
+
+    <script>
+        function addComment() {
+            const username = document.getElementById('username').value;
+            const comment = document.getElementById('comment').value;
+            const commentSection = document.getElementById('comments');
+
+            // Append user input directly (unsafe)
+            commentSection.innerHTML += `<p><strong>${username}</strong>: ${comment}</p>`;
+        }
+    </script>
+</body>
+</html>
 </body>
